@@ -7,10 +7,11 @@ public class EnemyPool : MonoBehaviour {
     public GameObject EnemyPrefab;
     public int Max_nomber_Enemies;
     public float Enemy_Rate_Apparition;
-    private readonly List<GameObject> _EnemyPool= new List<GameObject>();
+
+    private readonly List<GameObject> _EnemyPool= new List<GameObject>();    
 
 	// Use this for initialization
-	void Start () {        
+	void Start () {       
 
         for (int i=0; i<Max_nomber_Enemies; i++)
         {
@@ -40,8 +41,10 @@ public class EnemyPool : MonoBehaviour {
 
         if(enemy!=null)
         {
-            //to do : make randomize vector but maybe not totaly randomized
-            enemy.transform.position = new Vector2(0, 0);
+            //to do : make randomize vector but maybe not totaly randomized            
+            int x = Random.Range(-10, 10);
+            int y = Random.Range(-4, 4);
+            enemy.transform.position = new Vector2(x, y);
             enemy.SetActive(true);
         }
     }
