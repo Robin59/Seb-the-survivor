@@ -1,10 +1,14 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 using System.Collections;
 
 public class EnemyBehaviour : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
+    public UnityEvent enemyDieEvent=new UnityEvent();
+    public UnityEvent enemyAttackEvent = new UnityEvent();
+    
+    // Use this for initialization
+    void Start () {
 	
 	}
 	
@@ -21,8 +25,8 @@ public class EnemyBehaviour : MonoBehaviour {
 
     public void OnShooted()
     {
-        // to do : Add points to the player stats
-        Debug.Log(gameObject.name + " is shooted");
+        // to do : Add points to the player stats        
+        enemyDieEvent.Invoke();
         gameObject.SetActive(false);
     }
 }

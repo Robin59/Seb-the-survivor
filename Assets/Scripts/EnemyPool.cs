@@ -42,8 +42,18 @@ public class EnemyPool : MonoBehaviour {
         if(enemy!=null)
         {
             //to do : make randomize vector but maybe not totaly randomized            
-            int x = Random.Range(-10, 10);
+            int x=Random.Range(-10, 10);           
             int y = Random.Range(-4, 4);
+            while (false)
+            {
+                x= Random.Range(-10, 10);
+                y= Random.Range(-4, 4);
+                foreach (GameObject i_enemy in _EnemyPool)
+                {
+                    //if (i_enemy.transform.position.x trop pres x) 
+                }
+            }
+            
             enemy.transform.position = new Vector2(x, y);
             enemy.SetActive(true);
         }
