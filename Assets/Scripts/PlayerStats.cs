@@ -1,15 +1,27 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 using System.Collections;
+
+[System.Serializable]
+public class IntEvent : UnityEvent<int> {}
 
 public class PlayerStats : MonoBehaviour {
 
     public int Score;
     public byte MaxLifePoints;
     private byte currentLifePoints;
-	// Use this for initialization
-	void Start () {
+
+    public IntEvent scoreChangeEvent = new IntEvent();
+    public IntEvent currentLifeChangeEvent = new IntEvent();
+
+    // Use this for initialization
+    void Start () {
         currentLifePoints = MaxLifePoints;
         Score = 0;
+
+        scoreChangeEvent.Invoke(Score);
+        currentLifeChangeEvent.Invoke(currentLifePoints);
+
     }
 	
 	// Update is called once per frame
@@ -20,6 +32,7 @@ public class PlayerStats : MonoBehaviour {
     public void OnEnemydie()
     {
         Debug.Log("OnEnemydie");
-        Score++;
+        Score = Score + 1;
+        scoreChangeEvent.Invoke(Score);
     }
 }
