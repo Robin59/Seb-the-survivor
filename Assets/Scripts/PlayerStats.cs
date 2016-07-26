@@ -29,10 +29,16 @@ public class PlayerStats : MonoBehaviour {
 	
 	}
 
-    public void OnEnemydie()
+    public void OnEnemyDie()
     {
         Debug.Log("OnEnemydie");
         Score = Score + 1;
         scoreChangeEvent.Invoke(Score);
+    }
+
+    public void OnEnemyAttack()
+    {
+        Debug.Log("OnEnemyAttack");        
+        currentLifeChangeEvent.Invoke(--currentLifePoints);
     }
 }

@@ -8,9 +8,15 @@ public class EnemyBehaviour : MonoBehaviour {
     public UnityEvent enemyAttackEvent = new UnityEvent();
     
     // Use this for initialization
-    void Start () {
-	
-	}
+    void Start () {        
+        PlayerStats playerStats = GameObject.Find("Player").GetComponent(typeof(PlayerStats) ) as PlayerStats;
+        if (playerStats != null) {
+            enemyDieEvent.AddListener(playerStats.OnEnemyDie);
+            enemyAttackEvent.AddListener(playerStats.OnEnemyAttack);
+        }
+        
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
