@@ -30,8 +30,7 @@ public class PlayerStats : MonoBehaviour {
 	}
 
     public void OnEnemyDie()
-    {
-        Debug.Log("OnEnemydie");
+    {       
         Score = Score + 1;
         scoreChangeEvent.Invoke(Score);
     }

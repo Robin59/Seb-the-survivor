@@ -11,8 +11,7 @@ public class EnemyPool : MonoBehaviour {
     private readonly List<GameObject> _EnemyPool= new List<GameObject>();    
 
 	// Use this for initialization
-	void Start () {       
-
+	void Start () {
         for (int i=0; i<Max_nomber_Enemies; i++)
         {
             GameObject instance = Instantiate(EnemyPrefab);
