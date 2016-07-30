@@ -5,7 +5,8 @@ using System.Collections;
 public class UI : MonoBehaviour {
 
     public Text scoreText;
-    public Text lifePointText;
+    public Text lifePointsText;
+    public Text rageLevelText;
 
     // Use this for initialization
     void Start() {
@@ -25,6 +26,11 @@ public class UI : MonoBehaviour {
 
     public void OnPlayerLifeChange(int newLifePoints)
     {
-        lifePointText.text = "Life points : " + newLifePoints.ToString();
+        lifePointsText.text = "Life points : " + newLifePoints.ToString();
+    }
+
+    public void OnRageLevelChange(int newRageLevel)
+    {
+        rageLevelText.text = "Rage level : " + newRageLevel.ToString();
     }
 }
